@@ -12,33 +12,30 @@ int main() {
     /* Alocar o segmento de memória compartilhada */
     segment_id = shmget(IPC_PRIVATE, shared_segment_size, IPC_CREAT | IPC_EXCL | S_IRUSR | S_IWUSR);
 
-    /* Acoplar o segmento de memória compartilhada */
-    shared_memory = (char*) shmat(segment_id, 0, 0);
-    printf("Memória compartilhada acoplada no endereço %p\n", shared_memory);
+     // Acoplar o segmento de memória compartilhada
+    shared_memory = (char*) shmat(segment_id, NULL, 0);
 
-    /* Determinar o tamanho do segmento */
-    shmctl(segment_id, IPC_STAT, &shmbuffer);
-    segment_size = shmbuffer.shm_segsz;
-    printf("Tamanho do segmento: %d\n", segment_size);
+    pid_t pid = fork();
 
-    /* Escrever uma string no segmento de memória compartilhada */
-    sprintf(shared_memory, "Olá, mundo.");
+    if (pid < 0) {
+        perror("fork");
+        exit(1);
+    } else if (pid == 0) { // Processo filho
+        // Esperar o pai escrever
+        // (Neste exemplo simples, o filho apenas espera o pai terminar)
+        wait(NULL);
 
-    /* Desacoplar o segmento de memória compartilhada */
+        // Ler a string da memória compartilhada e imprimir
+        printf("Filho leu: %s\n", shared_memory);
+    } else { // Processo pai
+        // Escrever uma string na memória compartilhada
+        sprintf(shared_memory, "Olá do pai!");
+
+        // Esperar o filho terminar antes de liberar a memória
+        wait(NULL);
+    }
+
+    // Desacoplar e desalocar a memória compartilhada
     shmdt(shared_memory);
-
-    /* Reacoplar o segmento de memória compartilhada, em um diferente endereço */
-    shared_memory = (char*) shmat(segment_id, (void*) 0x5000000, 0);
-    printf("Memória compartilhada reacoplada no endereço %p\n", shared_memory);
-
-    /* Imprimir a string da memória compartilhada */
-    printf("%s\n", shared_memory);
-
-    /* Desacoplar o segmento de memória compartilhada */
-    shmdt(shared_memory);
-
-    /* Desalocar o segmento de memória compartilhada */
     shmctl(segment_id, IPC_RMID, 0);
-
-    return 0;
 }
