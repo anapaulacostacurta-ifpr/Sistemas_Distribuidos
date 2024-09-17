@@ -5,6 +5,7 @@ public class ProcessSpawn {
     // Método para criar e executar um processo filho
     private static Process spawn(String program, String[] argList) throws IOException {
         ProcessBuilder processBuilder = new ProcessBuilder(argList);
+        System.out.println("Entrou no método Spawn");
         // Define o programa a ser executado
         processBuilder.command(program);
         return processBuilder.start();
