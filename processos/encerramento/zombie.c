@@ -1,4 +1,8 @@
-      
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
+#include <stdio.h>      
 
 int main() {
     char *arg_list[] = {"ls", "-l", "/", NULL};
@@ -11,7 +15,7 @@ int main() {
         exit(1);
     } else {
         /* Este é o processo pai. Dorme por um minuto. */
-        sleep(60);
+        sleep(10);
     }
     return 0;
 }
