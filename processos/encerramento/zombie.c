@@ -18,6 +18,6 @@ int main() {
         printf("Processo pai/n");
         exit(0);
     }
-    printf("Finalizando.../n")
+    printf("Finalizando.../n");
     return 0;
 }
