@@ -31,10 +31,10 @@ A classe `Thread` em Java oferece a base para a programação concorrente.
         }
     }
     ```
-* **Iniciando threads:**
-  ```java
-  Thread t = new Thread(tarefa);
-  t.start();
+  * **Iniciando threads:**
+    ```java
+    Thread t = new Thread(tarefa);
+    t.start();
 
 ## Atividade Prática - Criando uma nova Thread em Java:
 * Execução paralela de threads;
