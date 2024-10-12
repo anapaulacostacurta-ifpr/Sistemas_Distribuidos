@@ -37,7 +37,7 @@ A classe `Thread` em Java oferece a base para a programação concorrente.
     t.start();
 
 ## Atividade Prática - Criando uma nova Thread em Java:
-* Execução paralela de threads;
-* Execução paralela de threads com yield;
+* Execução paralela de threads: TesteConcorrente.java;
+* Execução paralela de threads com yield: Teste Concorrente2.java;
 
 
