@@ -9,7 +9,7 @@
 ## 06 - Processos Zumbis
 ## 07 - IPC Memoria compartilhada
 ## 08 - [Criação de Thread em C](./conteudos/threadsC.md)
-## 09 - Threads em Java
+## 09 - [Threads em Java] (./conteudos/ThreadsJava/ThreadsJava.md)
 ## 10 - Prioridades Threads em Java
 ## 11 - Threads usando Monitor
 ## 12 - Threads usando Eventos
