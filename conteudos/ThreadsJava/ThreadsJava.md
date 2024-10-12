@@ -40,10 +40,26 @@ A classe `Thread` em Java oferece a base para a programação concorrente.
 ### Objetivo:
 * Compreender os conceitos básicos de threads em Java;
 * Implementar threads para executar tarefas em paralelo;
-* Utilizar o método yield() para controlar a execução de threads.
+* Compreender o comportamento de threads em Java e o impacto do método yield().
+* Analisar a saída de programas concorrentes e identificar padrões de execução.
+* Identificar as diferenças entre as duas implementações.
 
 ### Tarefas:
 * Execução paralela de threads: TesteConcorrente.java;
 * Execução paralela de threads com yield: Teste Concorrente2.java;
 
+### Procedimento
+
+#### Compilação:
+Salve os arquivo em seu repositório github (TesteConcorrente.java e TesteConcorrente2.java).
+Utilize um compilador Java (como o javac) para compilar cada classe:
+  ```bash
+  javac ImprimirThread_1.java TesteConcorrente.java
+  javac ImprimirThread_2.java TesteConcorrente2.java
+
+#### Execução:
+Execute cada classe principal:
+   ```bash
+   java TesteConcorrente
+   java TesteConcorrente2
 
