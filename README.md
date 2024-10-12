@@ -8,7 +8,7 @@
 ## 05 - Encerramento de processos
 ## 06 - Processos Zumbis
 ## 07 - IPC Memoria compartilhada
-## 08 - Criação de Thread em C
+## 08 - [Criação de Thread em C] (www.google.com.br)
 ## 09 - Threads em Java
 ## 10 - Prioridades Threads em Java
 ## 11 - Threads usando Monitor
