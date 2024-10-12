@@ -152,8 +152,9 @@ Em alguns casos, o programa pode levar algum tempo para responder ao sinal de in
 * Enviar o link do seu github, onde contem os códigos executados e as logs de execução. O Envio do link deverá ser realizado exclusivamente pelo formulário do Google Sala de Aula.
   
 ## Perguntas para reflexão - Você deve responder a perguntas abaixo no formulário no Google Sala de aula: 
-#### Analisando os resultados das três execuções (ThreadsConcorrenteInfinitas.java, ThreadsConcorrenteShutdownHook.java e ThreadsConcorrenteInterrupet.java), descreva detalhadamente as diferenças observadas no comportamento das threads, considerando os seguintes aspectos:
+#### Analisando os resultados das cinco execuções, descreva detalhadamente as diferenças observadas no comportamento das threads, considerando os seguintes aspectos:
 * **Ordem de execução:** Houve alguma ordem previsível na execução das threads? Por quê?
 * **Efeito do método yield():** O método yield() influenciou a ordem de execução das threads? Explique o porquê.
 * **Influência do CTRL+C:** Como o sinal de interrupção (CTRL+C) afetou a execução dos programas? Houve alguma diferença no comportamento entre os programas?
 * **Comparação entre as implementações:** Quais são as principais diferenças entre as três implementações e quais as vantagens e desvantagens de cada uma?
+* **Comparação entre execuções:** Quais são as principais diferenças entre as cinco execuções e quais as vantagens e desvantagens de cada uma?
