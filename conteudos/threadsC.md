@@ -14,7 +14,7 @@
 ## Tanto a thread principal quanto a thread criada entram em loops while(1), o que significa que ambas continuarão executando indefinidamente, imprimindo caracteres no terminal, a menos que sejam interrompidas externamente. Ademais, um sinal externo pode ser enviado ao processo para interromper sua execução como um SIGINT ou SIGTERM.
 
 # Atividade Prática
-### 1. Compilação e Execução [thread-create.c]((../threads/thread-create.c):
+### 1. Compilação e Execução [thread-create.c](../threads/thread-create.c):
 #### •	Compile o código: Utilize o comando abaixo para compilar o código e gerar o executável thread-create: gcc -o thread-create thread-create.c -lpthread 
 #### •	Execute o programa: Rode o programa usando o comando: ./thread-create. 
 ### 2. Observe e Análise a saída na tela:
