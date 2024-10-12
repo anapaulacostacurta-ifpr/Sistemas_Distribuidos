@@ -23,6 +23,7 @@ A classe `Thread` em Java oferece a base para a programação concorrente.
         }
     }
     ```
+    
   * **Implementando Runnable:**
     ```java
     class MinhaTarefa implements Runnable {
@@ -31,11 +32,13 @@ A classe `Thread` em Java oferece a base para a programação concorrente.
         }
     }
     ```
+    
   * **Iniciando threads:**
     ```java
     Thread t = new Thread(tarefa);
     t.start();
-
+    ```
+    
 ## Atividade Prática - Criando uma nova Thread em Java:
 ### Objetivo:
 * Compreender os conceitos básicos de threads em Java;
@@ -51,15 +54,29 @@ A classe `Thread` em Java oferece a base para a programação concorrente.
 ### Procedimento
 
 #### Compilação:
-Salve os arquivo em seu repositório github (TesteConcorrente.java e TesteConcorrente2.java).
-Utilize um compilador Java (como o javac) para compilar cada classe:
+Salve os arquivo em seu repositório github (TesteConcorrente.java e TesteConcorrente2.java). Utilize um compilador Java (como o javac) para compilar cada classe:
   ```bash
   javac ImprimirThread_1.java TesteConcorrente.java
   javac ImprimirThread_2.java TesteConcorrente2.java
-
-#### Execução:
+  ```
+#### Execução 1:
 Execute cada classe principal:
    ```bash
    java TesteConcorrente
    java TesteConcorrente2
+   ```
+#### Execução 2:
+Execute cada classe principal:
+   ```bash
+   java TesteConcorrente > testesConcorrente_$(Get-Date -Format yyyyMMdd_HHmmss).log &
+   java TesteConcorrente2 > testesConcorrente_$(Get-Date -Format yyyyMMdd_HHmmss).log &
+   ```
 
+#### Análise dos Resultados:
+* **Execução paralela em TesteConcorrente.java:** As threads devem executar suas tarefas de forma concorrente, sem uma ordem específica.
+* **Método yield() em TesteConcorrente2.java:** O método yield() sugere ao escalonador que permita que outra thread com a mesma prioridade seja executada. No entanto, não há garantia de que outra thread será imediatamente selecionada.
+
+#### Respostas da atividade:
+* Print de execução dos programas TesteConcorrente.java e TesteConcorrente2.java onde consta o nome do usuário do github que executou a atividade.
+* Enviar o link do seu github onde contem os códigos executados e as logs de execução.
+* 
