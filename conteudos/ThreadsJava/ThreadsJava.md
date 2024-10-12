@@ -142,15 +142,15 @@ Em alguns casos, o programa pode levar algum tempo para responder ao sinal de in
 * **Execução Método yield() em ThreadsConcorrenteInterrupet.java:** O método yield() sugere ao escalonador que permita que outra thread com a mesma prioridade seja executada. No entanto, não há garantia de que outra thread será imediatamente selecionada. O programa executa por um tempo e depois encerrada. Pode ser encerrado a execução antecipada utilizando CTRL+C ou o comando Kill.
 
 ### Orientações para responder a atividade:
-* 1. Deve ser criado um repositório no github para essa atividade;
-* 2. Realizar o upload dos arquivos ThreadsConcorrenteInfinitas.java, ThreadsConcorrenteShutdownHook e ThreadsConcorrenteInterrupet.java;
-* 3. Criar um Codespace no github para realizar a execução em terminal;
-* 4. Realizar as cinco execuções no seu codespace do github;
-* 5. Após as execuções no codespace, realizar o commit dos três arquivos para seu repositório no github: ThreadsConcorrenteInfinitas.java, ThreadsConcorrenteShutdownHook e ThreadsConcorrenteInterrupet.java;
-* 6. Realizar os print das cinco execução dos programas, na imagem deve consta o nome do usuário do github que executou a atividade.
-* 7. Realizar o upload os prints de execução das três execuções em seu repositório;
-* 8. Enviar o link do seu github, onde contem os códigos executados e as logs de execução. O Envio do link deverá ser realizado exclusivamente pelo formulário do Google Sala de Aula.
-* 
+* Deve ser criado um repositório no github para essa atividade;
+* Realizar o upload dos arquivos ThreadsConcorrenteInfinitas.java, ThreadsConcorrenteShutdownHook e ThreadsConcorrenteInterrupet.java;
+* Criar um Codespace no github para realizar a execução em terminal;
+* Realizar as cinco execuções no seu codespace do github;
+* Após as execuções no codespace, realizar o commit dos três arquivos para seu repositório no github: ThreadsConcorrenteInfinitas.java, ThreadsConcorrenteShutdownHook e ThreadsConcorrenteInterrupet.java;
+* Realizar os print das cinco execução dos programas, na imagem deve consta o nome do usuário do github que executou a atividade.
+* Realizar o upload os prints de execução das três execuções em seu repositório;
+* Enviar o link do seu github, onde contem os códigos executados e as logs de execução. O Envio do link deverá ser realizado exclusivamente pelo formulário do Google Sala de Aula.
+  
 ## Perguntas para reflexão - Você deve responder a perguntas abaixo no formulário no Google Sala de aula: 
 #### Analisando os resultados das três execuções (ThreadsConcorrenteInfinitas.java, ThreadsConcorrenteShutdownHook.java e ThreadsConcorrenteInterrupet.java), descreva detalhadamente as diferenças observadas no comportamento das threads, considerando os seguintes aspectos:
 * **Ordem de execução:** Houve alguma ordem previsível na execução das threads? Por quê?
