@@ -1,6 +1,7 @@
 # Threads vs. Processos
 As threads, também conhecidas como "processos leves", oferecem uma forma eficiente de realizar múltiplas tarefas dentro de um mesmo processo. Ao contrário dos processos, que possuem seu próprio espaço de endereço e recursos, as threads compartilham a maior parte dos recursos do processo pai, como memória e descritores de arquivos.
-Criação e Execução de Threads
+
+# Criação e Execução de Threads
 Em sistemas Linux, a criação e gerenciamento de threads é realizada através da biblioteca POSIX Threads (pthreads). A função pthread_create é a principal responsável por criar uma nova thread, especificando a função que a nova thread irá executar e qualquer argumento necessário.
 
 # Exemplo Prático: 
