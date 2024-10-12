@@ -25,7 +25,7 @@
 ### 4. Compilação e Execução [thread-create2.c](../threads/thread-create2.c):
 #### •	Compile o código: Utilize o comando abaixo para compilar o código e gerar o executável thread-create2: gcc -o thread-create2 thread-create2.c -lpthread 
 #### •	Execute o programa, rode o programa usando o comando:  ./thread-create2
-### 5. Observe e Análise a saída na tela:
+### 5. Observe e análise a saída na tela. Reponda as perguntas abaixo:
 #### •	Qual foi a diferença na execução da thread-create.c?
 #### •	Como qual foi a forma de encerramento utilizada no programa thread-create2.c?
 
