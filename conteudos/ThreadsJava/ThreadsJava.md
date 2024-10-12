@@ -99,54 +99,14 @@ Em alguns casos, o programa pode levar algum tempo para responder ao sinal de in
    java ThreadsConcorrenteInfinitas
    ```
 ### Execução 2 - Threads com ShutdownHook:
-* Crie uma arquivo com o nome: ThreadsConcorrenteShutdownHook.java;
-* Incluir o código abaixo:
-   ```java
-   import java.util.concurrent.atomic.AtomicBoolean;
-
-   class ImprimirThreadShutdownHook implements Runnable {
-       private final String str;
-       private static final AtomicBoolean running = new AtomicBoolean(true);
-   
-       public ImprimirThreadShutdownHook(String str) {
-           this.str = str;
-       }
-       public void setStop(boolean status) {
-           running.set(status);
-       }
-   
-       public void run() {
-           while (running.get()) {
-               System.out.print(str);
-           }
-       }
-   }
-   
-   class ThreadsConcorrenteShutdownHook {
-       public static void main(String[] args) {
-          ImprimirThreadShutdownHook imprimirA = new ImprimirThreadShutdownHook("A");
-           ImprimirThreadShutdownHook imprimirB = new ImprimirThreadShutdownHook("B");
-   
-           // Passar essas instâncias para as threads
-           Thread threadA = new Thread(imprimirA);
-           Thread threadB = new Thread(imprimirB);
-          
-           threadA.start();
-           threadB.start();
-   
-           // Usar o shutdown hook para parar as threads
-           Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-               System.out.println("\nEncerrando threads Concorrente com ShutdownHook...");
-               imprimirA.setStop(false);  // Parar threadA
-               imprimirB.setStop(false);  // Parar threadB
-           }));
-       }
-   }
-   ```
 * **Explicação Detalhada**: Uma variável AtomicBoolean é utilizada para controlar a execução das threads de forma atômica, evitando problemas de concorrência. O ShutdownHook é registrado utilizando Runtime.getRuntime().addShutdownHook(). Quando a JVM está prestes a ser encerrada, este hook é executado. Dentro do ShutdownHook, a variável running é definida como false, sinalizando para as threads que devem parar sua execução.
 * **Ao pressionar CTRL+C** para interromper o programa, as threads serão encerradas de forma ordenada e a mensagem "Encerrando threads Concorrente com ShutdownHook..." será exibida.
 * **Vantagens do ShutdownHook:** Evita vazamentos de recursos e garante que as threads sejam finalizadas corretamente. Permite realizar tarefas de limpeza, como fechar arquivos ou conexões de banco de dados. Pode ser personalizado para atender a diferentes necessidades de encerramento.
-
+* Execute cada classe principal:
+   ```bash
+   java ThreadsConcorrenteShutdownHook
+   ```
+   
 ### Execução 3 - Threads com interrupt e geração de arquivo de log de execução:
 * **Sinalização:** Quando uma thread é interrompida, ela recebe um sinal de interrupção. É importante verificar esse sinal dentro do loop para decidir se deve continuar a execução.
 * **Controle do tempo:** No exemplo, foi adicionado um atraso para simular uma tarefa que leva algum tempo. Em um cenário real, você pode usar outros mecanismos para controlar o tempo de execução das threads.
@@ -162,11 +122,11 @@ Em alguns casos, o programa pode levar algum tempo para responder ao sinal de in
 
 ### Orientações para responder a atividade:
 * Deve ser criado um repositório no github para essa atividade;
-* Realizar o upload dos arquivos ThreadsConcorrenteInfinitas.java e ThreadsConcorrenteInterrupet.java;
+* Realizar o upload dos arquivos ThreadsConcorrenteInfinitas.java, ThreadsConcorrenteShutdownHook e ThreadsConcorrenteInterrupet.java;
 * Criar um Codespace no github para realizar a execução em terminal;
 * Realizar as três execuções no seu codespace do github;
-* Após execução no codespace, realizar o commit dos três arquivos para seu repositório no github: ThreadsConcorrenteInfinitas.java, ThreadsConcorrenteShutdownHook e ThreadsConcorrenteInterrupet.java;
-* Realizar os print de execução dos programas TesteConcorrente.java e TesteConcorrente2.java onde consta o nome do usuário do github que executou a atividade.
+* Após as execuções no codespace, realizar o commit dos três arquivos para seu repositório no github: ThreadsConcorrenteInfinitas.java, ThreadsConcorrenteShutdownHook e ThreadsConcorrenteInterrupet.java;
+* Realizar os print de execução dos programas ThreadsConcorrenteInfinitas.java, ThreadsConcorrenteShutdownHook e ThreadsConcorrenteInterrupet.java onde consta o nome do usuário do github que executou a atividade.
 * Realizar o upload os prints de execução das três execuções em seu repositório;
 * Enviar o link do seu github, onde contem os códigos executados e as logs de execução, no formulário do Google Sala de Aula.
 * 
