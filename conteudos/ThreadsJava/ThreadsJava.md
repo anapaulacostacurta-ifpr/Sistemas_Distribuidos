@@ -76,7 +76,7 @@ Em alguns casos, o programa pode levar algum tempo para responder ao sinal de in
 * **Justificar:** Suas escolhas com base em argumentos técnicos.
 
 #### Tarefas:
-* **Execução paralela de threads:** [ThreadsConcorrenteInfinitas.java](https://github.com/anapaulacostacurta-ifpr/Sistemas_Distribuidos/blob/main/conteudos/ThreadsJava/ThreadsConcorrenteInfinitas.java)>;
+* **Execução paralela de threads:** [ThreadsConcorrenteInfinitas.java](https://github.com/anapaulacostacurta-ifpr/Sistemas_Distribuidos/blob/main/conteudos/ThreadsJava/ThreadsConcorrenteInfinitas.java);
 * **Implementação e Execução paralela de threads com ShutdownHook:** [ThreadsConcorrenteShutdownHook.java](https://github.com/anapaulacostacurta-ifpr/Sistemas_Distribuidos/blob/main/conteudos/ThreadsJava/ThreadsConcorrenteShutdownHook.java);
 * **Execução paralela de threads com yield:** [ThreadsConcorrenteInterrupet.java](https://github.com/anapaulacostacurta-ifpr/Sistemas_Distribuidos/blob/main/conteudos/ThreadsJava/ThreadsConcorrenteInterrupet.java);
 
