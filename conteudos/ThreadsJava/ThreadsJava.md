@@ -162,10 +162,10 @@ Em alguns casos, o programa pode levar algum tempo para responder ao sinal de in
 
 ### Orientações para responder a atividade:
 * Deve ser criado um repositório no github para essa atividade;
-* Realizar o upload dos arquivos TesteConcorrente.java e TesteConcorrente2.java;
+* Realizar o upload dos arquivos ThreadsConcorrenteInfinitas.java e ThreadsConcorrenteInterrupet.java;
 * Criar um Codespace no github para realizar a execução em terminal;
 * Realizar as três execuções no seu codespace do github;
-* Após execução no codespace, realizar o commit de todos os arquivos para seu repositório no github;
+* Após execução no codespace, realizar o commit dos três arquivos para seu repositório no github: ThreadsConcorrenteInfinitas.java, ThreadsConcorrenteShutdownHook e ThreadsConcorrenteInterrupet.java;
 * Realizar os print de execução dos programas TesteConcorrente.java e TesteConcorrente2.java onde consta o nome do usuário do github que executou a atividade.
 * Realizar o upload os prints de execução das três execuções em seu repositório;
 * Enviar o link do seu github, onde contem os códigos executados e as logs de execução, no formulário do Google Sala de Aula.
