@@ -76,17 +76,18 @@ Em alguns casos, o programa pode levar algum tempo para responder ao sinal de in
 * **Justificar:** Suas escolhas com base em argumentos técnicos.
 
 #### Tarefas:
-* Execução paralela de threads: ThreadsConcorrenteInfinitas.java;
-* Implementação e Execução paralela de threads com ShutdownHook;
-* Execução paralela de threads com yield: ThreadsConcorrenteInterrupet.java;
+* **Execução paralela de threads:** <ThreadsConcorrenteInfinitas.java>;
+* **Implementação e Execução paralela de threads com ShutdownHook:** <ThreadsConcorrenteShutdownHook.java>;
+* **Execução paralela de threads com yield:** <ThreadsConcorrenteInterrupet.java>;
 
 ## Procedimento
 
 ### Compilação:
-* Salve os arquivo em seu repositório github (ThreadsConcorrenteInfinitas.java e ThreadsConcorrenteInterrupet.java). 
-* Utilize um compilador Java (como o javac) para compilar cada classe:
+* Salve os arquivo em seu repositório github (ThreadsConcorrenteInfinitas.java, ThreadsConcorrenteShutdownHook.java e ThreadsConcorrenteInterrupet.java). 
+* Utilize um compilador Java (javac) para compilar cada classe:
   ```bash
   javac ThreadsConcorrenteInfinitas.java
+  Javac ThreadsConcorrenteShutdownHook.java
   javac ThreadsConcorrenteInterrupet.java
   ```
 
@@ -94,43 +95,63 @@ Em alguns casos, o programa pode levar algum tempo para responder ao sinal de in
 * **Ordem de execução:** Ao executar esses comandos, você provavelmente verá uma mistura dos caracteres 'A' e 'B' sendo impressos na tela de forma aleatória, a ordem em que os comandos são executados não garante que as threads dentro de cada programa sejam executadas em uma ordem específica. Isso dependerá do escalonador do sistema operacional e de outros fatores.
 * **Saída:** A saída de cada programa será exibida na tela do terminal, a menos que você redirecione a saída para um arquivo, como nos exemplos anteriores.
 * **Encerramento:** Pressionar CTRL+C é uma forma rápida e simples de interromper a execução de um programa Java. No entanto, para garantir um encerramento limpo e ordenado, é recomendado utilizar mecanismos como ShutdownHook e tratar o sinal de interrupção de forma personalizada. A escolha do método de encerramento dependerá das necessidades específicas de cada aplicação.
-* Execute cada classe principal:
+* Execute a classe principal:
    ```bash
    java ThreadsConcorrenteInfinitas
    ```
-### Execução 2 - Threads com ShutdownHook:
+* Pressione CTRL+C;
+
+### Execução 2 - Threads com loop infinito e geração de arquivo de log de execução:
+* Execute a classe principal novamente em backgroud:
+   ```bash
+   java ThreadsConcorrenteInfinitas > ThreadsConcorrenteInfinitas_$(date +%Y%m%d_%H%M%S).log & 
+   ```
+* Executar o comando: kill -SIGINT <PID>;
+
+### Execução 3 - Threads com ShutdownHook:
 * **Explicação Detalhada**: Uma variável AtomicBoolean é utilizada para controlar a execução das threads de forma atômica, evitando problemas de concorrência. O ShutdownHook é registrado utilizando Runtime.getRuntime().addShutdownHook(). Quando a JVM está prestes a ser encerrada, este hook é executado. Dentro do ShutdownHook, a variável running é definida como false, sinalizando para as threads que devem parar sua execução.
 * **Ao pressionar CTRL+C** para interromper o programa, as threads serão encerradas de forma ordenada e a mensagem "Encerrando threads Concorrente com ShutdownHook..." será exibida.
 * **Vantagens do ShutdownHook:** Evita vazamentos de recursos e garante que as threads sejam finalizadas corretamente. Permite realizar tarefas de limpeza, como fechar arquivos ou conexões de banco de dados. Pode ser personalizado para atender a diferentes necessidades de encerramento.
-* Execute cada classe principal:
+* Execute a classe principal:
    ```bash
    java ThreadsConcorrenteShutdownHook
    ```
-   
-### Execução 3 - Threads com interrupt e geração de arquivo de log de execução:
+* Pressione CTRL+C;
+ 
+### Execução 4 - Threads com interrupt e geração de arquivo de log de execução:
 * **Sinalização:** Quando uma thread é interrompida, ela recebe um sinal de interrupção. É importante verificar esse sinal dentro do loop para decidir se deve continuar a execução.
 * **Controle do tempo:** No exemplo, foi adicionado um atraso para simular uma tarefa que leva algum tempo. Em um cenário real, você pode usar outros mecanismos para controlar o tempo de execução das threads.
-* Execute cada classe principal direncionado a saída para um arquivo de log:
+* Execute a classe principal direncionado a saída para um arquivo de log:
+   ```bash
+   java ThreadsConcorrenteInterrupet > ThreadsConcorrenteInterrupet_$(date +%Y%m%d_%H%M%S).log
+   ```
+* Aguarde o encerramento da execução
+
+### Execução 5 - Threads com interrupt, geração de arquivo de log de execução e Encerramento com Kill:
+* **Sinalização:** Quando uma thread é interrompida, ela recebe um sinal de interrupção. É importante verificar esse sinal dentro do loop para decidir se deve continuar a execução.
+* **Controle do tempo:** No exemplo, foi adicionado um atraso para simular uma tarefa que leva algum tempo. Em um cenário real, você pode usar outros mecanismos para controlar o tempo de execução das threads.
+* Execute a classe principal direncionado a saída para um arquivo de log:
    ```bash
    java ThreadsConcorrenteInterrupet > ThreadsConcorrenteInterrupet_$(date +%Y%m%d_%H%M%S).log &
    ```
+* Executar o comando no kill -SIGINT <PID>
 
 ### Análise dos Resultados:
-* **Execução paralela em ThreadsConcorrenteInfinitas.java:** As threads devem executar suas tarefas de forma concorrente, sem uma ordem específica.
-* **Execução paralela em ThreadsConcorrenteShutdownHook.java:** Ao pressionar CTRL+C para interromper o programa, as threads serão encerradas de forma ordenada e a mensagem "Encerrando threads Concorrente com ShutdownHook..." será exibida.
-* **Método yield() em ThreadsConcorrenteInterrupet.java:** O método yield() sugere ao escalonador que permita que outra thread com a mesma prioridade seja executada. No entanto, não há garantia de que outra thread será imediatamente selecionada.
+* **Execução paralela em ThreadsConcorrenteInfinitas.java:** As threads devem executar suas tarefas de forma concorrente, sem uma ordem específica. Como executa em Loop infinito e o terminal fica bloqueado com a execução precisamos precionar CTRL+C para encerrar a execução. Se a Execução for realizada com "&" é necessário executar o comando kill para encerrar o processo.
+* **Execução paralela em ThreadsConcorrenteShutdownHook.java:** Ao pressionar CTRL+C ou kill para interromper o programa, as threads serão encerradas de forma ordenada e a mensagem "Encerrando threads Concorrente com ShutdownHook..." será exibida.
+* **Execução Método yield() em ThreadsConcorrenteInterrupet.java:** O método yield() sugere ao escalonador que permita que outra thread com a mesma prioridade seja executada. No entanto, não há garantia de que outra thread será imediatamente selecionada. O programa executa por um tempo e depois encerrada. Pode ser encerrado a execução antecipada utilizando CTRL+C ou o comando Kill.
 
 ### Orientações para responder a atividade:
-* Deve ser criado um repositório no github para essa atividade;
-* Realizar o upload dos arquivos ThreadsConcorrenteInfinitas.java, ThreadsConcorrenteShutdownHook e ThreadsConcorrenteInterrupet.java;
-* Criar um Codespace no github para realizar a execução em terminal;
-* Realizar as três execuções no seu codespace do github;
-* Após as execuções no codespace, realizar o commit dos três arquivos para seu repositório no github: ThreadsConcorrenteInfinitas.java, ThreadsConcorrenteShutdownHook e ThreadsConcorrenteInterrupet.java;
-* Realizar os print de execução dos programas ThreadsConcorrenteInfinitas.java, ThreadsConcorrenteShutdownHook e ThreadsConcorrenteInterrupet.java onde consta o nome do usuário do github que executou a atividade.
-* Realizar o upload os prints de execução das três execuções em seu repositório;
-* Enviar o link do seu github, onde contem os códigos executados e as logs de execução, no formulário do Google Sala de Aula.
+* 1. Deve ser criado um repositório no github para essa atividade;
+* 2. Realizar o upload dos arquivos ThreadsConcorrenteInfinitas.java, ThreadsConcorrenteShutdownHook e ThreadsConcorrenteInterrupet.java;
+* 3. Criar um Codespace no github para realizar a execução em terminal;
+* 4. Realizar as cinco execuções no seu codespace do github;
+* 5. Após as execuções no codespace, realizar o commit dos três arquivos para seu repositório no github: ThreadsConcorrenteInfinitas.java, ThreadsConcorrenteShutdownHook e ThreadsConcorrenteInterrupet.java;
+* 6. Realizar os print das cinco execução dos programas, na imagem deve consta o nome do usuário do github que executou a atividade.
+* 7. Realizar o upload os prints de execução das três execuções em seu repositório;
+* 8. Enviar o link do seu github, onde contem os códigos executados e as logs de execução. O Envio do link deverá ser realizado exclusivamente pelo formulário do Google Sala de Aula.
 * 
-## Perguntas para reflexão - Responder a perguntas da atividade no formulário no Google Sala de aula: 
+## Perguntas para reflexão - Você deve responder a perguntas abaixo no formulário no Google Sala de aula: 
 #### Analisando os resultados das três execuções (ThreadsConcorrenteInfinitas.java, ThreadsConcorrenteShutdownHook.java e ThreadsConcorrenteInterrupet.java), descreva detalhadamente as diferenças observadas no comportamento das threads, considerando os seguintes aspectos:
 * **Ordem de execução:** Houve alguma ordem previsível na execução das threads? Por quê?
 * **Efeito do método yield():** O método yield() influenciou a ordem de execução das threads? Explique o porquê.
