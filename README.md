@@ -11,7 +11,7 @@
 ## 08 - [Criação de Thread em C](./conteudos/threadsC.md)
 ## 09 - [Threads em Java](./conteudos/ThreadsJava/ThreadsJava.md)
 ## 10 - [Prioridades Threads em Java](./threads/prioridade/prioridade.md)
-## 11 - [Sincronização de Threads: Monitor e Eventos](https://github.com/anapaulacostacurta-ifpr/SD-ThreadsJava)
+## 11 - [Sincronização de Threads: Monitor e Eventos](https://github.com/anapaulacostacurta-ifpr/SD-SincronizacaoThreadsJava)
 ## 12 - [Controle de Concorrência](https://github.com/anapaulacostacurta-ifpr/SD-ControleConcorrenciaJava)
 ## 13 - Locks e Semáforos
 ## 14 - Concorrência na API Java
