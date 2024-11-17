@@ -12,7 +12,7 @@
 ## 09 - [Threads em Java](./conteudos/ThreadsJava/ThreadsJava.md)
 ## 10 - [Prioridades Threads em Java](./threads/prioridade/prioridade.md)
 ## 11 - [Sincronização de Threads: Monitor e Eventos](https://github.com/anapaulacostacurta-ifpr/SD-SincronizacaoThreadsJava)
-## 12 - [Locks e Semáforos](https://github.com/anapaulacostacurta-ifpr/SD-ControleConcorrenciaJava)
+## 12 - [Controle Concorrência: Monitores, Locks e Semáforos](https://github.com/anapaulacostacurta-ifpr/SD-ControleConcorrenciaJava)
 ## 13 - Concorrência na API Java
 ## 14 - Comunicação entre Processos - Pipes
 ## 15 - Comunicação entre Processos - Sockets
