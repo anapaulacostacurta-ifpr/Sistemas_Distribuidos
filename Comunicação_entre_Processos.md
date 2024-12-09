@@ -5,4 +5,4 @@
 ## Socket
 [Repositório Socket](https://github.com/anapaulacostacurta-ifpr/SD-Socket)
 ## Java RMI
-[Repositório Java RMI](https://github.com/anapaulacostacurta-ifpr/SD-JavaRMI)
+[Repositório Java RMI](https://github.com/anapaulacostacurta-ifpr/SD-ServidorRMI)
